@@ -11,10 +11,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Notes Saved (DATA)
-var characters = [];
+var notesSaved = [
+  {title:"Test Title",text:"Test text"},
+  {title:"Fishingwoman",text:"Fishingwoman Text!!"}
+];
 
-// Routes
-app.get("*", function(req, res) {
+// Routes for HTML pages
+app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
   });
 
@@ -23,7 +26,10 @@ app.get("*", function(req, res) {
   });
   
 
-
+// Displays all notes
+app.get("/api/notesSaved", function(req, res) {
+  return res.json(notesSaved);
+});
 
 
 

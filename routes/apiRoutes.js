@@ -35,6 +35,7 @@ module.exports = function (app) {
   app.post("/api/notes", function (req, res) {
     // req.body is available since we're using the body parsing middleware
     noteData.push(req.body);
+    console.log(req.body)
 
   })
 };

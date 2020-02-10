@@ -4,9 +4,11 @@
 // These data sources hold arrays of information on table-data, waitinglist, etc.
 // ===============================================================================
 
-var noteData = require("../db/db");
-
-
+const noteData = require("../db/db.json");
+const fs = require("fs")
+const path = require('path')
+const util = require('util')
+const writeFileAsync = util.promisify(fs.writeFile)
 
 // ===============================================================================
 // ROUTING
@@ -35,7 +37,27 @@ module.exports = function (app) {
   app.post("/api/notes", function (req, res) {
     // req.body is available since we're using the body parsing middleware
     noteData.push(req.body);
+    writeFileAsync(path.join(__dirname, '../db/db.json'), JSON.stringify(req.body))
+    .then(() => {
+        console.log('Jobs done!')
+    })
+res.json(req.body)
     console.log(req.body)
 
   })
+///deleting stuff, still testing
+app.delete('/api/db', function (req, res) {
+  let id = req.body.id
+  console.log(`Deleting ${id}`)
+
+  db.splice(id, 1)
+
+  writeFileAsync(path.join(__dirname, '../db/db.json'), JSON.stringify(db))
+      .then(() => {
+          console.log(`Jobs done`)
+      })
+
+  res.json(id)
+})
+
 };

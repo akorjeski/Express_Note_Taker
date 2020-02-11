@@ -6,67 +6,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Note Taker</title>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.1.3/flatly/bootstrap.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
     integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" type="text/css" href="/style">
 </head>
 
-<body>
-  <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Note Taker
-    </a>
-    <div class="icons">
-      <i class="fas fa-save text-light save-note"></i>
-      <i class="fas fa-pen text-light new-note"></i>
+<body data-gr-c-s-loaded="true">
+
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1 class="text-center"><span class="fa fa-fire"></span>Note Taker</h1>
+      <hr>
+      <h2 class="text-center">Current notes</h2>
+      <br>
+
+      <div class="text-center">
+        <a href="/makeNotes"><button class="btn btn-lg btn-danger"><span class="fa fa-credit-card"></span>Create
+            Note</button></a>
+        <a href="/"><button class="btn btn-lg btn-default"><span class="fa fa-home"></span></button></a>
+      </div>
     </div>
-  </nav>
-  <div class="container-fluid">
     <div class="row">
-      <div class="col-4 list-container">
+      <div class="col-lg-12">
+
         <div class="card">
-          <ul class="list-group">
-          </ul>
+          <div class="card-header">
+            <h4>Notes:</h4>
+          </div>
+          <div class="card-body" id="noteList">
+
+          </div>
         </div>
-      </div>
-      <div class="col-8">
-        <input class="note-title" placeholder="Note Title" maxlength="28" type="text" id="noteTitle">
-        <textarea class="note-textarea" placeholder="Note Text" id="noteText"></textarea>
-        <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-fire"></span> Add
-          Note!!</button>
 
-      </div>
-    </div>
-    <!-- This is the row that holds the view all button -->
-    <div class="row">
-    <form method="get" action="/api/notes">
-    <button type="submit" class="btn btn-primary btn-md">View Notes</button>
-    <form>
-    </div>
-    <!-- This is the row that holds the view all button -->
-  
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="/assets/js/index.js"></script>
-  <script type="text/javascript">
-  var noteCount = 0;
-    // Question: What does this code do? It adds a new note!
-    $("#add-btn").on("click", function (event) {
-      event.preventDefault();
-      var newNote = {
-        title: $("#noteTitle").val().trim(),
-        text: $("#noteText").val().trim(),
-        id: noteCount++
-      };
 
-      // Question: What does this code do??
-      $.post("/api/notes", newNote)
-        .then(function (data) {
-          console.log("notes.html", data);
-          alert("Adding note...");
-        });
-    });
-  </script>
+        </footer>
+      </div>
+
+
+
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="/index"></script>
+
 </body>
 
 </html>

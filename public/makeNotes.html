@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Note Taker</title>
+
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1 class="text-center"><span class="fa fa-fire"></span>Note Taker</h1>
+      <hr>
+      <h2 class="text-center">Create a note</h2>
+      <br>
+
+      <div class="text-center">
+        <a href="/notes"><button class="btn btn-lg btn-primary"><span class="fa fa-list-alt"></span> View
+            Notes</button></a>
+        <a href="/"><button class="btn btn-lg btn-default"><span><i class="fas fa-home"></i></span></button></a>
+      </div>
+
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <strong>Take a note.</strong>
+      </div>
+      <div class="card-body">
+        <form id="note">
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" id="title">
+          </div>
+          <div class="form-group">
+            <label>Note:</label>
+            <input type="textarea" class="form-control" id=text>
+          </div>
+          <input type="submit">
+      </div>
+    </div>
+
+
+
+    <footer class="footer">
+      <div class="container">
+        <p><a href="/api/db">API Notes</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+
+<script type="text/javascript" src="/makeNotesJS"></script>
+
+</html>
